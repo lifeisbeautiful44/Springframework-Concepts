@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:c="http://www.springframework.org/schema/c"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:property-placeholder location="com/srijansil/spring/springcore/assignment/assignment4/wsclient.properties" />
+
+<!--<bean class="com.srijansil.spring.springcore.assignment.assignment4.MyDao" name="dao" c:url="${url}" c:user="${userName}"   c:password="${password}"/>
+-->
+
+<bean class="com.srijansil.spring.springcore.assignment.assignment4.MyDao" name="dao" 
+      c:url="${url}" 
+      c:userName="${userName}"   
+      c:password="${password}" 
+     />
+
+
+<!--<bean class="com.srijansil.spring.springcore.assignment.assignment4.MyDao" name="dao" >
+	
+	<constructor-arg value="${url}" index="0"/>
+		<constructor-arg value="${userName}" index="1"/>
+	<constructor-arg value="${password}" index="2"/>
+
+		
+	
+	</bean>-->
+</beans>
+
+

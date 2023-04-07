@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Here, first of all always define the class in which other class is 
+		dependent i.e. dependable class, so first we define the score class , and 
+		inject its properties or fields then we define the student class and inject 
+		the score object in it , by using the ref -->
+	<bean name="score"
+		class="com.srijansil.spring.springcore.reftypes.Scores" p:IIT="90"
+		p:WebTechnology="80" p:Calclus="92" p:Networking="85" />
+
+	<bean name="student"
+		class="com.srijansil.spring.springcore.reftypes.Student">
+		<property name="scores">
+			<ref bean="score" />
+		</property>
+	</bean>
+	
+	
+<!-- 	1.  injecting by the p:schema
+	<bean name ="student" class="com.srijansil.spring.springcore.reftypes.Student" p:scores-ref="scores"/>
+	
+	    2.   injecting by using ref as attribute
+	<bean name="student" class="com.srijansil.spring.springcore.reftypes.Student">
+		<property name="scores" ref = "score"/>
+			
+	</bean> -->
+	
+</beans>
